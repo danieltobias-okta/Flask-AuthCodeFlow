@@ -61,14 +61,15 @@ def callback():
         headers = {
             'Accept': 'application/json',
             'Authorization': authorization, 
-            'Content-Type': 'application/x-www-form-urlencoded'}
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
         response = requests.post(url + call_url, headers=headers, data = payload)
         session['access_token'] = response.json()['access_token']
 
         return redirect(url_for("profile"))
         
 
-    return "hey"
+    return render_template(url_for("index"))
 
 @app.route("/profile")
 # We get the login name from the access token here
