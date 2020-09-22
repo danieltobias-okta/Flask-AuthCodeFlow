@@ -49,7 +49,7 @@ def login():
 def callback():
     if "code" in request.args:
         code = request.args.get('code')
-        call_url = "oauth2/v1/token"
+        call_url = "/oauth2/v1/token"
         payload = {
             'grant_type': "authorization_code",
             'redirect_uri': 'http://localhost/oidc-callback',
